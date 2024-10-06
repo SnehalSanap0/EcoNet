@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoNet</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDE2fHxub3ZhfGVufDB8fHx8MTY5ODI4NDU1Mw&ixlib=rb-4.0.3&q=80&w=1920');
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 3em;
+            animation: fadeIn 1.5s ease-in-out forwards;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 30px;
+            font-size: 1.5em;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+            animation-delay: 1s;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 20px auto;
+            max-width: 1200px;
+            flex: 1;
+        }
+
+        .section {
+            background-color: rgba(44, 62, 80, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
+            width: 300px;
+            margin: 20px;
+            padding: 20px;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            animation: slideIn 1s forwards;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        .expanded {
+            display: none;
+            margin-top: 10px;
+            background-color: rgba(44, 62, 80, 0.95);
+            padding: 15px;
+            border-radius: 10px;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            position: relative;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            header {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .section {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>EcoNet</h1>
+    </header>
+
+    <div class="intro">
+        <p>Welcome to our educational game project, designed to teach students about Globe Protocol systems through engaging gameplay.</p>
+    </div>
+
+    <div class="container">
+        <div class="section" id="cloudQuest" onclick="toggleDetails('cloudQuestDetails')">
+            <img src="Cloud.jpg" alt = "Clouds">
+            <h2>Cloud Quest</h2>
+            <p>Players identify different types of clouds and weather conditions.</p>
+            <div class="expanded" id="cloudQuestDetails">
+                <p><strong>Gameplay:</strong> Match clouds to the correct types and maintain balance in the environment. Incorrect selections cause imbalances that affect weather patterns.</p>
+                <p><strong>Educational Outcome:</strong> Teaches kids about cloud types and their role in weather.</p>
+            </div>
+        </div>
+
+        <div class="section" id="ecosystemBuilder" onclick="toggleDetails('ecosystemBuilderDetails')">
+            <img src="trees.jpg" alt="Ecosystem">
+            <h2>Ecosystem Builder</h2>
+            <p>Players create a balanced ecosystem.</p>
+            <div class="expanded" id="ecosystemBuilderDetails">
+                <p><strong>Gameplay:</strong> Add plants, animals, and environmental elements to sustain life. Balance the needs of each organism.</p>
+                <p><strong>Educational Outcome:</strong> Helps students understand ecosystem interactions.</p>
+            </div>
+        </div>
+
+        <div class="section" id="waterCycleAdventure" onclick="toggleDetails('waterCycleAdventureDetails')">
+            <img src="water cycle.jpg" alt="Water Cycle">
+            <h2>Water Cycle Adventure</h2>
+            <p>Navigate through the water cycle.</p>
+            <div class="expanded" id="waterCycleAdventureDetails">
+                <p><strong>Gameplay:</strong> Overcome challenges like pollution and droughts while ensuring water cleanliness.</p>
+                <p><strong>Educational Outcome:</strong> Teaches about the water cycle and its importance.</p>
+            </div>
+        </div>
+
+        <div class="section" id="soilDetective" onclick="toggleDetails('soilDetectiveDetails')">
+            <img src="soil.jpg" alt="Soil">
+            <h2>Soil Detective</h2>
+            <p>Test soil quality and help plants grow.</p>
+            <div class="expanded" id="soilDetectiveDetails">
+                <p><strong>Gameplay:</strong> Select the right soil amendments for different plants to thrive.</p>
+                <p><strong>Educational Outcome:</strong> Teaches about soil types and health.</p>
+            </div>
+        </div>
+
+        <div class="section" id="earthHarmony" onclick="toggleDetails('earthHarmonyDetails')">
+            <img src="ecosystem.jpg" alt="Earth Harmony">
+            <h2>Earth Harmony: Connect the Spheres</h2>
+            <p>Connect different Earth systems to restore balance.</p>
+            <div class="expanded" id="earthHarmonyDetails">
+                <p><strong>Gameplay:</strong> Players link systems together to create a harmonious Earth.</p>
+                <p><strong>Educational Outcome:</strong> Demonstrates the interconnectedness of Earth's systems.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Feel free to reach out if you would like to know more about the project!</p>
+    </footer>
+
+    <script>
+        function toggleDetails(id) {
+            const details = document.getElementById(id);
+            details.style.display = details.style.display === "block" ? "none" : "block";
+        }
+
+        // Animation for sections
+        document.addEventListener("DOMContentLoaded", function() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach((section, index) => {
+                setTimeout(() => {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }, index * 500); // staggered animation
+            });
+        });
+    </script>
+</body>
+</html>
